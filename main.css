@@ -1,0 +1,64 @@
+.news__date {
+  display: flex;
+  align-items: center;
+}
+
+.news__date span {
+  font-weight: 500;
+  font-size: 0.75em;
+}
+
+.news__item {
+  border: 1px solid rgba(0,0,0,.125);
+  padding: .75rem 1.25rem;
+  display: block;
+}
+
+.menu__list {
+  display: flex;
+  padding: 0;
+}
+
+.menu__item {
+  list-style: none;
+}
+
+.menu__item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.menu__link {
+  font-size: 1.5em;
+  color: #A5A5A5;
+  text-decoration: none !important;
+  transition: color .3s linear;
+  position: relative;
+}
+
+.menu__link:hover {
+  color: #000000;
+}
+.menu__link::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 2px;
+  opacity: 0;
+  background-color: #000000;
+  transition: all 0.3s linear;
+}
+.menu__link--active::after {
+  opacity: 1;
+}
+.menu__link--active {
+  color: #000000;
+}
+
+.news__date__icon {
+  width: 20px;
+  fill: #000000;
+  margin-right: 7px;
+}
