@@ -6,7 +6,7 @@
           <a class="menu__link" href="#">Пользователь</a>
         </li>
         <li class="menu__item">
-          <a class="menu__link" href="#">Администратор</a>
+          <a class="menu__link" href="./admin">Администратор</a>
         </li>
       </ul>
     </nav>

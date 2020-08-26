@@ -15,7 +15,8 @@ if (isset($_POST['formSubmit'])) {
   $tmp_name_img = $_FILES['newsImage']['tmp_name'];
 
   if ($imgSize !== 0) {
-
+    $newsImage = ROOTPATH . "/img/default.jpg";
+    echo pathinfo(basename($newsImage), PATHINFO_FILENAME);
     // update_news_with_img($id, $title, $img_url, $tmp_name_img, $size_img, $old_img_url, $date, $url, $html);
     // header("Location: ../pageNewsList.php");
   } else {

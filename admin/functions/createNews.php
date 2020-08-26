@@ -3,6 +3,7 @@
 
 require_once("./uploadImage.php");
 require_once("./uploadData.php");
+require_once("./uploadDefaultImg.php");
 
 if (count($_POST) > 0) {
   $newsTitle = trim($_POST["newsTitle"]);
@@ -12,8 +13,7 @@ if (count($_POST) > 0) {
   if (isset($_FILES["newsImage"]) && $_FILES["newsImage"]["tmp_name"] != '') {
     $newsImage = uploadImage($_FILES["newsImage"]);
   } else {
-    $newsImage = "default.jpg";
-    move_uploaded_file($_FILES["newsImage"]["tmp_name"], "../../uploads/" . $newsImage);
+    $newsImage = uploadDefaultImg(ROOTPATH . "/img/default.jpg");
   }
   uploadData($newsTitle, $newsContent, $newsImage, $currentTime);
 
