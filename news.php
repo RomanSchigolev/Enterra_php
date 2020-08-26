@@ -1,7 +1,7 @@
 <?php
-require "./functions/getNewsItem.php";
+require_once "./root.php";
+require ROOTPATH . "/functions/getNewsItem.php";
 $newsItem = getNewsItem($_GET["news_id"]);
-
 ?>
 
 <!doctype html>

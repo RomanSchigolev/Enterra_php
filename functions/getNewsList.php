@@ -1,8 +1,7 @@
 <?php
+require_once ROOTPATH . "/config/database.php";
 
-require_once "./config/database.php";
-
-function getNews()
+function getNewsList()
 {
   $pdo = databaseConnect();
   $sql = "SELECT * FROM news";

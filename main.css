@@ -1,3 +1,11 @@
+.section__title h1 {
+  font-size: 2em;
+}
+
+.news__list {
+  padding: 0;
+}
+
 .news__date {
   display: flex;
   align-items: center;
@@ -6,6 +14,14 @@
 .news__date span {
   font-weight: 500;
   font-size: 0.75em;
+}
+
+.news__title {
+  font-size: 1.4em;
+}
+
+.news__text {
+  color: #797979;
 }
 
 .news__item {
@@ -28,7 +44,7 @@
 }
 
 .menu__link {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #A5A5A5;
   text-decoration: none !important;
   transition: color .3s linear;

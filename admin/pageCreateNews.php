@@ -12,6 +12,9 @@
 
 <body>
   <?php require("./components/header.php") ?>
+  <main>
+    <?php require("./components/formSection.php") ?>
+  </main>
 </body>
 
 </html>

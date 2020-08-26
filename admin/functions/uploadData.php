@@ -1,6 +1,6 @@
 <?php
-
-require_once "../../config/database.php";
+require("../../root.php");
+require_once ROOTPATH . "/config/database.php";
 
 function uploadData($newsTitle, $newsContent, $newsImage, $newsDate)
 {

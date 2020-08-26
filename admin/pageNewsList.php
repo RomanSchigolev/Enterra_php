@@ -1,32 +1,8 @@
 <?php
-require_once "./root.php";
-require ROOTPATH . "/functions/getNewsList.php";
+require "../root.php";
+require(ROOTPATH . "/functions/getNewsList.php");
 $newsList = getNewsList();
-
 date_default_timezone_set('Asia/Barnaul');
-function date_ru($timestamp, $show_time = false)
-{
-  if (empty($timestamp)) {
-    return '-';
-  } else {
-    $now   = explode(' ', date('Y n j H i'));
-    $value = explode(' ', date('Y n j H i', $timestamp));
-
-    if ($now[0] == $value[0] && $now[1] == $value[1] && $now[2] == $value[2]) {
-      return 'Сегодня в ' . $value[3] . ':' . $value[4];
-    } else {
-      $month = array(
-        '', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
-        'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
-      );
-      $out = $value[2] . ' ' . $month[$value[1]] . ' ' . $value[0];
-      if ($show_time) {
-        $out .= ' в ' . $value[3] . ':' . $value[4];
-      }
-      return $out;
-    }
-  }
-}
 ?>
 
 <!doctype html>
@@ -37,12 +13,12 @@ function date_ru($timestamp, $show_time = false)
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="main.css">
-  <title>Пользователь - Список новостей</title>
+  <link rel="stylesheet" href="../main.css">
+  <title>Document</title>
 </head>
 
 <body>
-  <?php include "./components/header.php" ?>
+  <?php require("./components/header.php") ?>
   <main>
     <section class="section py-5">
       <div class="container">
@@ -51,9 +27,9 @@ function date_ru($timestamp, $show_time = false)
         </div>
         <ul class="news__list d-flex flex-column align-items-center">
           <?php foreach ($newsList as $newsItem) : ?>
-            <li class="news__item w-75 mb-5">
+            <li class="news__item w-50 mb-5">
               <div class="news__content">
-                <div class="news__date mb-3">
+                <div class="news__date mb-2">
                   <svg class="news__date__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g>
                       <g>
@@ -134,15 +110,14 @@ function date_ru($timestamp, $show_time = false)
                   </svg>
                   <span class="text-dark"><?= date("d F Y H:i", $newsItem->news_date) ?></span>
                 </div>
-                <div class="news__img mb-3">
-                  <img class="h-auto w-100" src="./uploads/<?= $newsItem->news_img ?>" alt="News Image">
+                <div class="news__img mb-2">
+                  <img class="h-auto w-100" src="../uploads/<?= $newsItem->news_img ?>" alt="News Image">
                 </div>
-                <h2 class="news__title">
-                  <a href="./news.php?news_id=<?= $newsItem->news_id ?>" class="news__title__link text-dark"><?= $newsItem->news_title ?></a>
-                </h2>
+                <h2 class="news__title"><?= $newsItem->news_title ?></h2>
                 <p class="news__text"><?= mb_substr($newsItem->news_content, 0, 128, 'UTF-8') . "..." ?></p>
-                <div class="news__link">
-                  <a href="./news.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-dark">Читать дальше</a>
+                <div class="news__link d-flex justify-content-between">
+                  <a href="./editNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-primary">Редактировать</a>
+                  <a href="./deleteNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-danger">Удалить</a>
                 </div>
               </div>
             </li>
