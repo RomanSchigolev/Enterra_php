@@ -1,6 +1,4 @@
 <?php
-// $rootPath = $_SERVER['DOCUMENT_ROOT']; // C:/MAMP/htdocs/
-
 require_once("./uploadImage.php");
 require_once("./uploadData.php");
 require_once("./uploadDefaultImg.php");

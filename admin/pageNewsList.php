@@ -14,20 +14,20 @@ date_default_timezone_set('Asia/Barnaul');
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="../main.css">
-  <title>Document</title>
+  <title>Администратор - Список новостей</title>
 </head>
 
 <body>
   <?php require("./components/header.php") ?>
   <main>
     <section class="section py-5">
-      <div class="container">
+      <div class="container-fluid">
         <div class="section__title mb-4">
           <h1>Список новостей</h1>
         </div>
-        <ul class="news__list d-flex flex-column align-items-center">
+        <ul class="news__list">
           <?php foreach ($newsList as $newsItem) : ?>
-            <li class="news__item w-50 mb-5">
+            <li class="news__item mb-5">
               <div class="news__content">
                 <div class="news__date mb-2">
                   <svg class="news__date__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -115,9 +115,9 @@ date_default_timezone_set('Asia/Barnaul');
                 </div>
                 <h2 class="news__title"><?= $newsItem->news_title ?></h2>
                 <p class="news__text"><?= mb_substr($newsItem->news_content, 0, 128, 'UTF-8') . "..." ?></p>
-                <div class="news__link d-flex justify-content-between">
-                  <a href="./pageEditNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-primary">Редактировать</a>
-                  <a href="./deleteNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-danger">Удалить</a>
+                <div class="news__action">
+                  <a href="./pageEditNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link news__link--edit">Редактировать</a>
+                  <a href="./functions/deleteNews.php?news_id=<?= $newsItem->news_id ?>" onclick="return confirm('Вы уверены, что хотите удалить эту новость?')" class="news__link news__link--delete">Удалить</a>
                 </div>
               </div>
             </li>

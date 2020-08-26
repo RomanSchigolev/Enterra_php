@@ -1,5 +1,5 @@
 <header class="header pt-5">
-  <div class="container">
+  <div class="container-fluid">
     <nav class="menu">
       <ul class="menu__list">
         <li class="menu__item">

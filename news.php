@@ -21,7 +21,7 @@ $newsItem = getNewsItem($_GET["news_id"]);
   <main>
     <section class="section py-5">
       <div class="container">
-        <div class="news__content">
+        <div class="news__content w-75">
           <div class="news__date mb-2">
             <svg class="news__date__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g>
@@ -105,7 +105,7 @@ $newsItem = getNewsItem($_GET["news_id"]);
           </div>
           <h2 class="news__title mb-3"><?= $newsItem->news_title ?></h2>
           <div class="news__img mb-3">
-            <img class="h-auto w-100" src="./uploads/<?= $newsItem->news_img ?>" alt="News Image">
+            <img class="" src="./uploads/<?= $newsItem->news_img ?>" alt="News Image">
           </div>
           <p class="news__text"><?= $newsItem->news_content ?></p>
         </div>
