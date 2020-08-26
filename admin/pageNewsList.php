@@ -116,7 +116,7 @@ date_default_timezone_set('Asia/Barnaul');
                 <h2 class="news__title"><?= $newsItem->news_title ?></h2>
                 <p class="news__text"><?= mb_substr($newsItem->news_content, 0, 128, 'UTF-8') . "..." ?></p>
                 <div class="news__link d-flex justify-content-between">
-                  <a href="./editNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-primary">Редактировать</a>
+                  <a href="./pageEditNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-primary">Редактировать</a>
                   <a href="./deleteNews.php?news_id=<?= $newsItem->news_id ?>" class="news__link btn btn-danger">Удалить</a>
                 </div>
               </div>
