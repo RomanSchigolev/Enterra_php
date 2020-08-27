@@ -2,6 +2,7 @@
 require_once "./root.php";
 require ROOTPATH . "/functions/getNewsItem.php";
 $newsItem = getNewsItem($_GET["news_id"]);
+date_default_timezone_set('Asia/Barnaul');
 ?>
 
 <!doctype html>
@@ -101,7 +102,7 @@ $newsItem = getNewsItem($_GET["news_id"]);
                   <rect x="396" y="310" width="40" height="40" />
                 </g>
             </svg>
-            <span class="text-dark"><?= $newsItem->news_date ?></span>
+            <span class="text-dark"><?= date("d F Y H:i", $newsItem->news_date) ?></span>
           </div>
           <h2 class="news__title mb-3"><?= $newsItem->news_title ?></h2>
           <div class="news__img mb-3">
