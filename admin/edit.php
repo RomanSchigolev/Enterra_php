@@ -37,7 +37,7 @@ date_default_timezone_set('Asia/Barnaul');
               <textarea class="form-control" id="newsContent" name="newsContent" rows="15"><?= $newsItem->news_content ?></textarea>
             </div>
             <div class="form-group form__old__img">
-              <span>Старая картинка:</span>
+              <span>Текущая картинка:</span>
               <img class="h-auto w-100" src="../uploads/<?= $newsItem->news_img ?>" alt="Old news Image">
             </div>
             <div class="form-group form__file">
@@ -46,7 +46,7 @@ date_default_timezone_set('Asia/Barnaul');
             </div>
             <div class="form__actions d-flex justify-content-between">
               <button type="submit" class="btn btn-success btn-lg px-5" id="formSubmit" name="formSubmit">Готово</button>
-              <a href="pageNewsList.php" class="btn btn-secondary btn-lg px-5">Отмена</a>
+              <a href="newsList.php" class="btn btn-secondary btn-lg px-5">Отмена</a>
             </div>
           </form>
         </div>

@@ -5,7 +5,7 @@ $newsItem = getNewsItem($_POST["newsId"]);
 
 require_once("./editNewsWithoutImg.php");
 require_once("./editNewsWithImg.php");
-require_once("./rewriteImage.php");
+require_once("./uploadImage.php");
 
 if (isset($_POST['formSubmit'])) {
   $newsId = $_POST["newsId"];
@@ -17,11 +17,12 @@ if (isset($_POST['formSubmit'])) {
   $oldImage = $newsItem->news_img;
 
   if ($imgSize !== 0) {
-    $newsImage = rewriteImage($oldImage, $_FILES["newsImage"]);
+    $newsImage = uploadImage($_FILES["newsImage"]);
+    unlink(ROOTPATH . "/uploads/" . $oldImage);
     editNewsWithImg($newsId, $newsTitle, $newsContent, $newsImage, $currentTime);
-    header("Location: ../pageNewsList.php");
+    header("Location: ../newsList.php");
   } else {
     editNewsWithoutImg($newsId, $newsTitle, $newsContent, $currentTime);
-    header("Location: ../pageNewsList.php");
+    header("Location: ../newsList.php");
   }
 }
